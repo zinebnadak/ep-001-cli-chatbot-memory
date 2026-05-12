@@ -25,8 +25,11 @@ while True:                                                                     
             max_tokens=250, 
             system = system_prompt,                                                                     # output tokens
             messages = conversation_history)
-        print(f"Assistant: {message.content[0].text}")
-        conversation_history.append({"role" : "assistant", "content" : message.content[0].text})        # "Message" is an object with attributes, use dot notation to access them 
+        if not message.content:                                                                         #catch empty responses from API
+            print("Empty response received.")
+        else:
+            print(f"Assistant: {message.content[0].text}")
+            conversation_history.append({"role": "assistant", "content": message.content[0].text})    # "Message" is an object with attributes, use dot notation to access them 
     
     except RateLimitError:
         print("Rate limit is hit! Wait a moment and try again.")
