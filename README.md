@@ -18,12 +18,14 @@ A command-line chatbot that calls an LLM API and preserves the full conversation
 Step-by-step instructions. 
 
 ## Tech Used
-- `openai` — Python SDK for the Anthropic API. Handles the HTTP, auth, and response parsing so the code stays focused on logic.
+- `anthropic` — Python SDK for the Anthropic API (id: claude-haiku-4-5-20251001). Handles the HTTP, auth, and response parsing so the code stays focused on logic.
 - `python-dotenv` — loads the API key from `.env` without hardcoding it anywhere.
 
 ## References
-- [Anthropic — Claude API Docs/ Messages API reference](https://docs.anthropic.com/en/api/messages)
+- [Anthropic — Claude API Docs/ Get started with Claude](https://platform.claude.com/docs/en/get-started)
 - [Anthropic — Claude API Docs/ Using the Messages API guide](https://docs.anthropic.com/en/docs/build-with-claude/working-with-messages)
+- [Anthropic — Claude API Docs/ Messages API reference](https://docs.anthropic.com/en/api/messages)
+- [gitignore.io](https://www.toptal.com/developers/gitignore)
 
 
 ---
