@@ -1,5 +1,5 @@
 import os                                                                                          # to read the environment variable
-from anthropic import Anthropic                                                                    # Anthropic class is the client that handle communication with the API
+from anthropic import Anthropic, RateLimitError, APIError                                                                    # Anthropic class is the client that handle communication with the API
 from dotenv import load_dotenv                                                                     # load_dotenv function reads .env file
 
 load_dotenv()                                                                                      # read the .env file"
@@ -21,13 +21,20 @@ while True:                                                                     
 
     conversation_history.append({"role" : "user", "content" : user_content})                        # append after so that "quit" or "exit" does not get appended
     
-    message = client.messages.create(                                                               # API Call – after appending bcs API needs the user's message to be in the history before sending it
-        model = "claude-haiku-4-5",
-        max_tokens=200, 
-        system = system_prompt,                                                                     # output tokens
-        messages = conversation_history)
-    print(f"Assistant: {message.content[0].text}")
-
-    conversation_history.append({"role" : "assistant", "content" : message.content[0].text})        # "Message" is an object with attributes, use dot notation to access them 
+    try:
+        message = client.messages.create(                                                               # API Call – after appending bcs API needs the user's message to be in the history before sending it
+            model = "claude-haiku-4-5",
+            max_tokens=250, 
+            system = system_prompt,                                                                     # output tokens
+            messages = conversation_history)
+        print(f"Assistant: {message.content[0].text}")
+        conversation_history.append({"role" : "assistant", "content" : message.content[0].text})        # "Message" is an object with attributes, use dot notation to access them 
     
+    except RateLimitError:
+        print("Rate limit is hit! Wait a moment and try again.")
+    
+    except APIError as e:
+        print(f"API error: {e}")
+
+
 print(conversation_history)
