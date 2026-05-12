@@ -6,10 +6,8 @@ load_dotenv()                                                                   
 client = Anthropic()                                                                               # Creates an instant of the Antropic class - the API client
 
 
-
 conversation_history = []                                                                          #memory, everythign here should be a dict with "role" and "content" keys
 system_prompt = "You are a helpful loving asisstant"
-
 
 print('Chatbot Ready. Type "exit" or "quit" to terminate')
 
@@ -36,5 +34,3 @@ while True:                                                                     
     except APIError as e:
         print(f"API error: {e}")
 
-
-print(conversation_history)
