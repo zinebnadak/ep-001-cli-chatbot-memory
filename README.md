@@ -21,22 +21,32 @@ It deactivates when you close the terminal, so you have to activate it again eve
 
 ## How to Run
 1. Clone the repo
+```
    $ git clone https://github.com/zinebnadak/ep-001-cli-chatbot-memory
    $ cd ep-001-cli-chatbot-memory
+```
 
-2. Create and activate a virtual environment
+3. Create and activate a virtual environment
+```
    $ python3 -m venv venv
    $ source venv/bin/activate
+```
 
-3. Install dependencies
+5. Install dependencies
+```
    $ pip install -r requirements.txt
+```
 
-4. Add your API key
-   $ cp .env.example .env
+6. Add your API key
+```
+$ cp .env.example .env
+```
    # Open .env and replace with your actual Anthropic API key
 
-5. Run
-   $ python src/main.py 
+8. Run
+```
+$ python src/main.py
+```
 
 ## Tech Used
 - `anthropic` — Python SDK for the Anthropic API (id: claude-haiku-4-5-20251001). Handles the HTTP, auth, and response parsing so the code stays focused on logic.
