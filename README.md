@@ -41,7 +41,7 @@ It deactivates when you close the terminal, so you have to activate it again eve
 ```
 $ cp .env.example .env
 ```
-   # Open .env and replace with your actual Anthropic API key
+Open .env and replace with your actual Anthropic API key
 
 8. Run
 ```
