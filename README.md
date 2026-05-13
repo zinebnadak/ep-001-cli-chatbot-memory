@@ -1,6 +1,6 @@
 # Episode 001 — CLI Chatbot with Memory
 
-> takeaway: The model is an illusion you build in code, not something the model holds.
+> takeaway: The models memory is an illusion you build in code, not something the model holds.
 
 ## The Problem / The Question
 I wanted to understand how to actually build a chatbot that feels like a real conversation — not one that forgets everything after one message. The question I started with was how exactly does the model "know" what I said before, and what exactly do I send it to make that work?
